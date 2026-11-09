@@ -1,0 +1,823 @@
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO (Paleta de colores inspirada en una Cafeteria)
+   ========================================================================== */
+:root {
+  --rojo-chile: #ffffff;
+  --verde-limon: #634e0a;
+  --amarillo-maiz: hsla(45, 69%, 66%, 0.979);
+  --blanco-crema: #ffffea;
+  --oscuro-carbon: #414122;
+  --fuente-titulos: 'Lilita One', cursive;
+  --fuente-texto: 'Poppins', sans-serif;
+}
+
+/* ==========================================================================
+   2. RESET Y ESTILOS BASE
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background-color: var(--blanco-crema);
+  color: var(--oscuro-carbon);
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN Y MARCA
+   ========================================================================== */
+.sitio-nav {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 5rem;
+  padding: 0.75rem clamp(1rem, 5vw, 4rem);
+  background-color: var(--blanco-crema);
+  box-shadow: 0 3px 16px rgba(65, 65, 34, 0.1);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--oscuro-carbon);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.marca-logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.marca-logo-enlace {
+  display: inline-flex;
+  border-radius: 50%;
+}
+
+.marca-logo-enlace:focus-visible {
+  outline: 3px solid var(--verde-limon);
+  outline-offset: 3px;
+}
+
+.marca-icono {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--amarillo-maiz);
+  font-size: 1.45rem;
+}
+
+.marca-texto {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+}
+
+.marca-texto strong {
+  color: var(--verde-limon);
+}
+
+.sitio-enlaces {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+}
+
+.sitio-enlaces a {
+  color: var(--oscuro-carbon);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sitio-enlaces a:hover,
+.sitio-enlaces a:focus-visible {
+  color: var(--verde-limon);
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+/* ==========================================================================
+   3. HERO BANNER (Cabecera de impacto visual)
+   ========================================================================== */
+.hero {
+  background-image: url('https://www.tastingtable.com/img/gallery/how-the-us-helped-the-lattes-global-popularity-skyrocket/intro-1674148261.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative;
+}
+
+.hero-overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(249, 250, 248);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 4.5rem;
+  color: var(--amarillo-maiz);
+  text-shadow: 3px 3px 0px var(--rojo-chile);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.btn-principal {
+  background-color: var(--rojo-chile);
+  color: #000000;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(255, 85, 79, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+  transform: scale(1.05);
+  background-color: var(--amarillo-maiz);
+  color: var(--oscuro-carbon);
+  box-shadow: 0 6px 20px rgba(241, 168, 10, 0.5);
+}
+
+/* ==========================================================================
+   4. LAYOUT CONTENEDOR Y MAQUETA GRID
+   ========================================================================== */
+.contenedor {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.titulo-seccion {
+  font-family: var(--fuente-titulos);
+  font-size: 3rem;
+  text-align: center;
+  color: var(--verde-limon);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Cuadrícula moderna auto-ajustable */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ==========================================================================
+   5. DISEÑO DE LAS CARDS (Estilo de Diseñador de Interfaz)
+   ========================================================================== */
+.card {
+  background-color: hsla(51, 71%, 74%, 0.882);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+/* Microinteracción de elevación al pasar el mouse */
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--amarillo-maiz);
+  color: var(--oscuro-carbon);
+  padding: 0.3rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+.card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.producto-imagen-enlace {
+  display: block;
+  overflow: hidden;
+}
+
+.producto-imagen-enlace:focus-visible {
+  outline: 3px solid var(--verde-limon);
+  outline-offset: -3px;
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+  /* Efecto zoom suave en la comida */
+}
+
+.card-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  color: var(--oscuro-carbon);
+}
+
+.descripcion {
+  font-size: 0.95rem;
+  color: #534623;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px dashed #554b18;
+  padding-top: 1.2rem;
+}
+
+.precio {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--rojo-chile);
+}
+
+.btn-ordenar {
+  background-color: transparent;
+  border: 2px solid var(--verde-limon);
+  color: var(--verde-limon);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ordenar:hover {
+  background-color: var(--verde-limon);
+  color: rgb(0, 0, 0);
+}
+
+/* ==========================================================================
+   6. CARRITO DE COMPRAS
+   ========================================================================== */
+.carrito-toggle {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 50px;
+  padding: 0.75rem 1rem;
+  background-color: var(--amarillo-maiz);
+  color: var(--oscuro-carbon);
+  font: 600 1rem var(--fuente-texto);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carrito-contador {
+  display: inline-grid;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  margin-left: 0.35rem;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--oscuro-carbon);
+  color: var(--blanco-crema);
+  font-size: 0.8rem;
+}
+
+.carrito {
+  position: fixed;
+  top: 5.5rem;
+  right: 1rem;
+  z-index: 3;
+  width: min(22rem, calc(100vw - 2rem));
+  max-height: min(75vh, 35rem);
+  overflow-y: auto;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background-color: var(--blanco-crema);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.carrito-encabezado,
+.carrito-resumen,
+.carrito-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.carrito-encabezado {
+  margin-bottom: 1rem;
+}
+
+.carrito-encabezado h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--verde-limon);
+}
+
+.carrito-cerrar {
+  border: 0;
+  background: transparent;
+  color: var(--oscuro-carbon);
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.carrito-lista {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.carrito-item {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(65, 65, 34, 0.2);
+}
+
+.carrito-item-info {
+  min-width: 0;
+}
+
+.carrito-item-nombre {
+  display: block;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.carrito-item-precio {
+  font-size: 0.85rem;
+}
+
+.carrito-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carrito-cantidad button {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--verde-limon);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--verde-limon);
+  font: inherit;
+  cursor: pointer;
+}
+
+.carrito-vacio {
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.carrito-resumen {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #554b18;
+}
+
+.carrito-vaciar {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--verde-limon);
+  color: white;
+  font: 600 0.95rem var(--fuente-texto);
+  cursor: pointer;
+}
+
+.carrito-vaciar:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.carrito-ordenar,
+.pedido-enviar {
+  width: 100%;
+  margin-top: 0.65rem;
+  padding: 0.7rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--oscuro-carbon);
+  color: var(--blanco-crema);
+  font: 600 0.95rem var(--fuente-texto);
+  cursor: pointer;
+}
+
+.carrito-ordenar:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pedido-dialogo {
+  width: min(32rem, calc(100vw - 2rem));
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 16px;
+  background-color: var(--blanco-crema);
+  color: var(--oscuro-carbon);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.pagina-pedido {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 4rem auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.pagina-pedido h1,
+.pagina-pedido h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--verde-limon);
+}
+
+.pagina-pedido h2 {
+  margin-top: 1rem;
+}
+
+.pedido-dialogo::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.pedido-formulario {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.5rem;
+}
+
+.pagina-pedido .pedido-formulario {
+  padding: 0;
+}
+
+.pagina-pedido .pedido-formulario > section {
+  margin-bottom: 0.5rem;
+}
+
+.pagina-pedido .pedido-formulario > section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.carrito-mensaje {
+  margin-top: 0.75rem;
+  padding: 0.65rem;
+  border-radius: 8px;
+  background-color: hsla(45, 69%, 66%, 0.35);
+  font-size: 0.85rem;
+}
+
+.pedido-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.pedido-encabezado h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--verde-limon);
+}
+
+.pedido-formulario h3 {
+  margin-top: 0.25rem;
+}
+
+.pedido-cerrar {
+  border: 0;
+  background: transparent;
+  color: var(--oscuro-carbon);
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.pedido-resumen-lista {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+}
+
+.pedido-resumen-total {
+  text-align: right;
+}
+
+.pedido-formulario label {
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.pedido-formulario input,
+.pedido-formulario textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid rgba(65, 65, 34, 0.4);
+  border-radius: 8px;
+  background-color: white;
+  color: var(--oscuro-carbon);
+  font: inherit;
+}
+
+.pedido-aviso {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.pedido-mensaje {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: hsla(45, 69%, 66%, 0.35);
+}
+
+.pedido-enviar {
+  margin-top: 0.25rem;
+}
+
+.confirmacion {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 4rem auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.confirmacion h1 {
+  margin-bottom: 0.75rem;
+  font-family: var(--fuente-titulos);
+  color: var(--verde-limon);
+}
+
+.confirmacion-mensaje {
+  margin-bottom: 1.5rem;
+}
+
+.confirmacion-lista {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.confirmacion-datos {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.confirmacion-aviso {
+  margin-top: 1.5rem;
+  padding: 0.85rem;
+  border-radius: 8px;
+  background-color: hsla(45, 69%, 66%, 0.35);
+}
+
+.confirmacion-enlace {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background-color: var(--verde-limon);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.seccion-informativa {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.7fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1200px;
+  margin: 2rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.informacion-contenido .titulo-seccion,
+.seccion-contacto .titulo-seccion {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.etiqueta-seccion {
+  margin-bottom: 0.5rem;
+  color: var(--verde-limon);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.informacion-contenido > p:not(.etiqueta-seccion),
+.seccion-contacto > p:not(.etiqueta-seccion):not(.contacto-nota) {
+  max-width: 42rem;
+  line-height: 1.8;
+}
+
+.enlace-seccion {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--verde-limon);
+  font-weight: 600;
+}
+
+.informacion-destacada {
+  display: grid;
+  min-height: 16rem;
+  place-content: center;
+  gap: 0.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f8e7b0, #e8c689);
+  color: var(--oscuro-carbon);
+  text-align: center;
+}
+
+.informacion-destacada span {
+  font-size: 5rem;
+}
+
+.informacion-destacada p {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+}
+
+.seccion-contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  background-color: hsla(51, 71%, 74%, 0.45);
+  text-align: center;
+}
+
+.seccion-contacto .titulo-seccion {
+  text-align: center;
+}
+
+.seccion-contacto > p:not(.etiqueta-seccion):not(.contacto-nota) {
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}
+
+.contacto-nota {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.pagina-descripcion {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 4rem auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+}
+
+.descripcion-logo {
+  display: block;
+  width: min(12rem, 60%);
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+}
+
+.pagina-descripcion .titulo-seccion {
+  margin-bottom: 1rem;
+}
+
+.pagina-descripcion > p:not(.etiqueta-seccion) {
+  margin-top: 1rem;
+}
+
+.descripcion-regresar {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background-color: var(--verde-limon);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pagina-producto {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 4rem auto;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+}
+
+.producto-detalle-imagen {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.pagina-producto .titulo-seccion {
+  margin-bottom: 1rem;
+}
+
+.producto-detalle-descripcion {
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA
+   ========================================================================== */
+footer {
+  background-color: var(--oscuro-carbon);
+  color: var(--blanco-crema);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 760px) {
+  .sitio-nav {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .sitio-enlaces {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0 0.5rem;
+  }
+
+  .sitio-enlaces a {
+    font-size: 0.85rem;
+  }
+
+  .carrito {
+    top: 7.5rem;
+  }
+
+  .seccion-informativa {
+    grid-template-columns: 1fr;
+  }
+
+  .informacion-destacada {
+    min-height: 12rem;
+  }
+}

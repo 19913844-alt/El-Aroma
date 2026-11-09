@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Completa tu pedido | El dulce Aroma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="pagina-pedido">
+    <form class="pedido-formulario">
+      <h1 id="pedido-titulo">Completa tu pedido</h1>
+
+      <section aria-labelledby="pedido-resumen-titulo">
+        <h2 id="pedido-resumen-titulo">Resumen del pedido</h2>
+        <ul class="pedido-resumen-lista"></ul>
+        <p class="pedido-resumen-total">Total: <strong></strong></p>
+      </section>
+
+      <label for="pedido-nombre">Nombre completo</label>
+      <input id="pedido-nombre" name="nombre" type="text" autocomplete="name" required>
+
+      <label for="pedido-telefono">Teléfono</label>
+      <input id="pedido-telefono" name="telefono" type="tel" autocomplete="tel" required>
+
+      <label for="pedido-direccion">Dirección de entrega</label>
+      <textarea id="pedido-direccion" name="direccion" autocomplete="street-address" rows="2" required></textarea>
+
+      <label for="pedido-notas">Notas adicionales (opcional)</label>
+      <textarea id="pedido-notas" name="notas" rows="2"></textarea>
+
+      <p class="pedido-aviso">Al enviar, verás la confirmación de tu pedido. Para enviarlo a la cafetería se necesita
+        conectar un servicio de pedidos.</p>
+      <p class="pedido-mensaje" role="status" hidden></p>
+      <button class="pedido-enviar" type="submit">Enviar pedido</button>
+      <a class="descripcion-regresar" href="index.html#productos">Volver al menú</a>
+    </form>
+  </main>
+  <script src="formulario.js"></script>
+</body>
+
+</html>

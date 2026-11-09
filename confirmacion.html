@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de pedido | Cafetería El dulce Aroma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="confirmacion">
+    <h1 id="confirmacion-titulo">¡Pedido registrado!</h1>
+    <p class="confirmacion-mensaje" aria-live="polite"></p>
+
+    <section aria-labelledby="confirmacion-resumen-titulo">
+      <h2 id="confirmacion-resumen-titulo">Resumen del pedido</h2>
+      <ul class="confirmacion-lista"></ul>
+      <p class="confirmacion-total">Total: <strong></strong></p>
+    </section>
+
+    <section class="confirmacion-datos" aria-label="Datos de entrega">
+      <p><strong>Teléfono:</strong> <span data-order-field="phone"></span></p>
+      <p><strong>Dirección:</strong> <span data-order-field="address"></span></p>
+      <p class="confirmacion-notas" hidden><strong>Notas:</strong> <span data-order-field="notes"></span></p>
+    </section>
+
+    <p class="confirmacion-aviso">Este pedido quedó registrado en esta página de demostración; aún no fue enviado a la cafetería.</p>
+    <a class="confirmacion-enlace" href="index.html">Volver al menú</a>
+  </main>
+
+  <script src="confirmation.js"></script>
+</body>
+
+</html>

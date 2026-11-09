@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafeteria "El dulce Aroma"</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <nav class="sitio-nav" aria-label="Navegación principal">
+    <div class="marca">
+      <a class="marca-logo-enlace" href="descripcion.html" aria-label="Conoce la cafetería El dulce Aroma">
+        <img class="marca-logo" src="Img/Logotipo.png" alt="">
+      </a>
+      <a class="marca-texto" href="#inicio">El dulce <strong>Aroma</strong></a>
+    </div>
+    <div class="sitio-enlaces">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <button class="carrito-toggle" type="button" aria-expanded="false" aria-controls="carrito">
+      Carrito <span class="carrito-contador" aria-live="polite">0</span>
+    </button>
+  </nav>
+
+  <aside id="carrito" class="carrito" aria-label="Carrito de compras" hidden>
+    <div class="carrito-encabezado">
+      <h2>Tu carrito</h2>
+      <button class="carrito-cerrar" type="button" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <ul class="carrito-lista" aria-live="polite"></ul>
+    <p class="carrito-vacio">Tu carrito está vacío.</p>
+    <div class="carrito-resumen">
+      <strong>Total</strong>
+      <strong class="carrito-total">$0.00</strong>
+    </div>
+    <p class="carrito-mensaje" role="status" hidden></p>
+    <button class="carrito-vaciar" type="button" disabled>Vaciar carrito</button>
+    <button class="carrito-ordenar" type="button" disabled>Ordenar</button>
+  </aside>
+
+  <header id="inicio" class="hero">
+    <div class="hero-overlay">
+      <h1>¡Siente la autenticidad de nuestro sabor!</h1>
+      <p>Prueba la dulzura de nuestros postres</p>
+      <a href="#productos" class="btn-principal">Ver el Menú</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="productos" class="contenedor">
+      <h2 class="titulo-seccion">Nuestras Especialidades</h2>
+
+      <div class="menu-grid">
+        <article class="card">
+          <div class="card-badge">Popular</div>
+          <a class="producto-imagen-enlace" href="pastel-fresa.html" aria-label="Ver descripción del pastel de fresa">
+            <img src="Img/Pastel de fresa.jpg" alt="Pastel de fresa" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Pastel de fresa</h3>
+            <p class="descripcion">Un delicioso pastel de fresa con crema y frutas frescas.</p>
+            <div class="card-footer">
+              <span class="precio">$3.50</span>
+              <button class="btn-ordenar">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="producto-imagen-enlace" href="cafe-helado.html" aria-label="Ver descripción del café helado con chocolate">
+            <img src="Img/Ice Scream Cofee .jpg" alt="Café helado con chocolate" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Ice cream coffe</h3>
+            <p class="descripcion">Cafe Helado con chocolate.</p>
+            <div class="card-footer">
+              <span class="precio">$4.75</span>
+              <button class="btn-ordenar">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="producto-imagen-enlace" href="galletas.html" aria-label="Ver descripción de las galletas con chispas de chocolate">
+            <img src="Img/Galletas.jpg" alt="Galletas con chispas de chocolate" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Galletas con chispas de chocolate</h3>
+            <p class="descripcion">Galletas crujientes con chispas de chocolate.</p>
+            <div class="card-footer">
+              <span class="precio">$2.50</span>
+              <button class="btn-ordenar">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="producto-imagen-enlace" href="cheesecake.html" aria-label="Ver descripción del cheesecake de frutos rojos">
+            <img src="Img/Cheesecake de frutos rojos.jpg" alt="Cheesecake de frutos rojos" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Cheesecake de frutos rojos</h3>
+            <p class="descripcion">Cheesecake cremoso con una mezcla de frutos rojos frescos.</p>
+            <div class="card-footer">
+              <span class="precio">$4.25</span>
+              <button class="btn-ordenar" type="button">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="producto-imagen-enlace" href="brownie.html" aria-label="Ver descripción del brownie de chocolate">
+            <img src="Img/Brownies de Chocolate.jpg" alt="Brownie de chocolate" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Brownie de chocolate</h3>
+            <p class="descripcion">Brownie tibio de chocolate, suave por dentro y con nueces.</p>
+            <div class="card-footer">
+              <span class="precio">$3.00</span>
+              <button class="btn-ordenar" type="button">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="producto-imagen-enlace" href="cappuccino.html" aria-label="Ver descripción del cappuccino">
+            <img src="Img/Cappuccino.jpg" alt="Taza de cappuccino" class="card-img">
+          </a>
+          <div class="card-body">
+            <h3>Cappuccino</h3>
+            <p class="descripcion">Café espresso con leche cremosa y un toque de canela.</p>
+            <div class="card-footer">
+              <span class="precio">$3.75</span>
+              <button class="btn-ordenar" type="button">Pedir ya</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="nosotros" class="seccion-informativa">
+      <div class="informacion-contenido">
+        <p class="etiqueta-seccion">Nuestra historia</p>
+        <h2 class="titulo-seccion">Un aroma que reúne</h2>
+        <p>
+          En la cafetería El dulce Aroma celebramos los pequeños momentos con café recién preparado
+          y postres hechos para compartir. Cada especialidad está pensada para ofrecerte una pausa
+          dulce y acogedora.
+        </p>
+        <a class="enlace-seccion" href="#productos">Descubre el menú</a>
+      </div>
+      <div class="informacion-destacada" aria-hidden="true">
+        <span>☕</span>
+        <p>Hecho para disfrutar</p>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion-contacto">
+      <p class="etiqueta-seccion">Contacto</p>
+      <h2 class="titulo-seccion">¿Se te antojó algo?</h2>
+      <p>
+        Explora nuestras especialidades y usa el carrito para preparar tu pedido.
+        Al confirmarlo, podrás dejar tus datos y dirección de entrega.
+      </p>
+      <a class="btn-principal" href="#productos">Ver productos</a>
+      <p class="contacto-nota">
+        Esta página es una demostración y todavía no envía pedidos ni mensajes a la cafetería.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Cafetería "El dulce Aroma" | Diseñado por Kimberly Ventura 1DSA</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    document.querySelector('.marca-logo-enlace').addEventListener('pointerenter', (event) => {
+      window.location.assign(event.currentTarget.href);
+    });
+  </script>
+</body>
+
+</html>
